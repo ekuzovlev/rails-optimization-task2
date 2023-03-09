@@ -1,12 +1,12 @@
-# require_relative 'task-2'
-# require 'benchmark'
-# require 'memory_profiler'
+require_relative 'task-2'
+require 'benchmark'
+require 'memory_profiler'
 
-# report = MemoryProfiler.report do
-#   work('data/data_20_000.txt', disable_gc: false)
-# end
+report = MemoryProfiler.report do
+  work('data/data_20_000.txt', disable_gc: false)
+end
 
-# report.pretty_print(scale_bytes: true)
+report.pretty_print(scale_bytes: true)
 
 
 
@@ -31,14 +31,14 @@
 # end
 # ===================================================
 
-require 'ruby-prof'
-require_relative 'task-2'
+# require 'ruby-prof'
+# require_relative 'task-2'
 
-RubyProf.measure_mode = RubyProf::MEMORY
+# RubyProf.measure_mode = RubyProf::MEMORY
 
-result = RubyProf.profile do
- work('data/data_20_000.txt', disable_gc: true)
-end
+# result = RubyProf.profile do
+#  work('data/data_20_000.txt', disable_gc: true)
+# end
 
 
 # printer = RubyProf::CallTreePrinter.new(result)
@@ -53,8 +53,8 @@ end
 # printer = RubyProf::GraphHtmlPrinter.new(result)
 # printer.print(File.open('ruby_prof_reports/graph.html', 'w+'))
 
-printer = RubyProf::CallStackPrinter.new(result)
-printer.print(File.open('ruby_prof_reports/callstack.html', 'w+'))
+# printer = RubyProf::CallStackPrinter.new(result)
+# printer.print(File.open('ruby_prof_reports/callstack.html', 'w+'))
 
 
 # ===================================================
